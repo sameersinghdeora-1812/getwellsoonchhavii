@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Well Soon Chhaviii 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Playfair Display',serif;
+  background:linear-gradient(-45deg,#ff9ecf,#a18cd1,#89f7fe,#ffd6a5);
+  background-size:300% 300%;
+  animation:bgFlow 15s ease infinite;
+  overflow-x:hidden;
+  padding:20px;
+}
+
+@keyframes bgFlow{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+.card{
+  position:relative;
+  backdrop-filter:blur(20px);
+  background:rgba(255,255,255,0.25);
+  border-radius:25px;
+  padding:40px;
+  max-width:800px;
+  width:100%;
+  text-align:center;
+  box-shadow:0 8px 40px rgba(0,0,0,0.2);
+  border:1px solid rgba(255,255,255,0.3);
+  animation:breathe 4s ease-in-out infinite;
+  z-index: 10;
+}
+
+@keyframes breathe{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.01);}
+}
+
+h1{
+  font-family:'Dancing Script',cursive;
+  font-size:3rem;
+  color:#6a0dad;
+  margin-bottom:15px;
+}
+
+p{
+  margin-bottom:15px;
+  line-height:1.6;
+  color:#333;
+}
+
+.highlight{
+  color:#d63384;
+  font-weight:600;
+}
+
+.quotes{
+  font-style:italic;
+  margin-top:15px;
+  color:#4b0082;
+}
+
+.buttons{
+  margin-top:20px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:center;
+}
+
+button{
+  padding:12px 18px;
+  border-radius:25px;
+  border:none;
+  cursor:pointer;
+  font-size:0.95rem;
+  background:linear-gradient(135deg,#ff6ec4,#7873f5);
+  color:white;
+  transition:0.3s;
+  box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+
+button:hover{
+  transform:translateY(-4px) scale(1.05);
+  box-shadow:0 8px 25px rgba(0,0,0,0.3);
+}
+
+.poemBox{
+  display:none;
+  margin-top:20px;
+  padding:15px;
+  border-radius:15px;
+  background:rgba(255,255,255,0.4);
+  animation:fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(10px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+#complimentBox{
+  margin-top:15px;
+  font-weight:600;
+  color:#d63384;
+}
+
+.mood{
+  margin-top:20px;
+}
+
+input[type=range]{width:100%; cursor: pointer;}
+
+.heartbeat{
+  font-size:28px;
+  animation:beat 1.2s infinite;
+  margin-top:10px;
+}
+
+@keyframes beat{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.3);}
+}
+
+.secret{
+  display:none;
+  margin-top:20px;
+  font-weight:bold;
+  color:#6a0dad;
+  animation:fadeIn 1s ease forwards;
+}
+
+.float{
+  position:absolute;
+  font-size:20px;
+  animation:floatUp 12s linear infinite;
+  opacity:0.6;
+  z-index: 1;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(100vh) rotate(0deg);}
+  100%{transform:translateY(-10vh) rotate(360deg);}
+}
+
+/* --- NEW: Art Modal Pop-up Styles --- */
+.art-modal {
+  display: none;
+  position: fixed;
+  z-index: 200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.85);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.art-modal.active {
+  display: flex;
+  opacity: 1;
+}
+
+.frame {
+  background: #fff;
+  padding: 15px;
+  border: 12px solid #fff;
+  box-shadow: 
+    inset 0 0 10px rgba(0,0,0,0.3),
+    0 10px 50px rgba(0,0,0,0.5);
+  max-width: 90%;
+  max-height: 85%;
+  position: relative;
+  transform: scale(0.8);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.art-modal.active .frame {
+  transform: scale(1);
+}
+
+.frame img {
+  max-width: 100%;
+  max-height: 70vh;
+  display: block;
+  border: 1px solid #ddd;
+}
+
+.close-modal {
+  position: absolute;
+  top: -45px;
+  right: -10px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+@media(max-width:600px){
+  h1{font-size:2rem;}
+  .card{padding:25px;}
+  .frame { border-width: 8px; padding: 10px; }
+}
+</style>
+</head>
+
+<body onclick="countClicks()">
+
+<audio autoplay muted loop>
+  <source src="Chanani.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+
+<h1>Get Well Soon, Chhaviii 🎨✨</h1>
+
+<p>
+I know this cold has been heavy — fever, blocked nose, sore throat…  
+but <span class="highlight">your health is precious and deserves care</span>.
+</p>
+
+<p>
+The world genuinely misses your breathtaking sketches and your poetry that feels like soft music.  
+You carry yourself like graceful brush strokes — elegant, confident, beautifully composed.  
+Your inner strength and natural glow are far stronger than this fever.
+</p>
+
+<div class="heartbeat">❤️</div>
+
+<div class="quotes">
+“Healing is a matter of time.” <br>
+“Out of difficulties grow miracles.” <br>
+“The wound is the place where the Light enters you.”
+</div>
+
+<div class="buttons">
+<button onclick="soup(event)">Virtual Soup 🍲</button>
+<button onclick="showPoem(event)">Read a Poem 📜</button>
+<button onclick="hug(event)">Emergency Hugs 🤗</button>
+<button onclick="randomCompliment(event)">Random Compliment 💌</button>
+</div>
+
+<div class="poemBox" id="poem">
+You, the quiet storm of ink and light,<br>
+Sketching dreams in gentle twilight.<br>
+Rest now, artist rare and bright,<br>
+Healing wraps you soft tonight. 🌸
+</div>
+
+<div id="complimentBox"></div>
+
+<div class="mood">
+<p>Recovery Mood Meter 🌈</p>
+<input type="range" min="1" max="10" value="5" id="moodSlider">
+<p id="moodText">Feeling okay 💛</p>
+</div>
+
+<div class="buttons">
+  <button onclick="openArt('LINK_TO_IMAGE_1.jpg', event)">Silent Whispers 🎨</button>
+  <button onclick="openArt('LINK_TO_IMAGE_2.jpg', event)">Artistic Flow ✏️</button>
+  <button onclick="openArt('LINK_TO_IMAGE_3.jpg', event)">Pure impression 💜</button>
+  <button onclick="openArt('LINK_TO_IMAGE_4.jpg', event)"> Golden memories 🌸</button>
+</div>
+
+<div class="secret" id="secretMessage">
+You found the secret… 💖  
+No matter what, I’ll always admire your strength, your art, and your beautiful soul.
+</div>
+
+</div>
+
+<div class="art-modal" id="artModal" onclick="closeArt()">
+  <div class="frame" onclick="event.stopPropagation()">
+    <span class="close-modal" onclick="closeArt()">&times;</span>
+    <img id="fullImg" src="" alt="Chhavii's Art">
+  </div>
+</div>
+
+<div class="float" style="left:10%;">💖</div>
+<div class="float" style="left:40%;animation-duration:10s;">✏️</div>
+<div class="float" style="left:70%;animation-duration:14s;">💜</div>
+
+<script>
+function soup(e){
+  e.stopPropagation();
+  alert("A warm magical soup is on the way 🍲💖 Rest and feel better soon!");
+}
+
+function showPoem(e){
+  e.stopPropagation();
+  document.getElementById("poem").style.display="block";
+}
+
+function hug(e){
+  e.stopPropagation();
+  alert("Sending the tightest warmest hug 🤗💞 You are deeply cared for.");
+}
+
+const compliments=[
+  "You are art walking in human form 🎨",
+  "Your creativity makes everything brighter ✨",
+  "Even when sick, you glow differently 💖",
+  "Your strength is quietly powerful 🌸",
+  "Your smile is someone's favorite place 🌷"
+];
+
+function randomCompliment(e){
+  e.stopPropagation();
+  const random=compliments[Math.floor(Math.random()*compliments.length)];
+  document.getElementById("complimentBox").innerText=random;
+}
+
+const slider=document.getElementById("moodSlider");
+const moodText=document.getElementById("moodText");
+slider.oninput=function(){
+  const moods=["Very Low 😢","Low 💙","Little Better 🌥️","Okay 💛","Stable 🌸","Improving 🌷","Good 😊","Strong 💪","Radiant ✨","Unstoppable 🌈"];
+  moodText.innerText=moods[this.value-1];
+}
+
+/* --- ART POP-UP LOGIC --- */
+function openArt(imgUrl, e) {
+  e.stopPropagation();
+  const modal = document.getElementById('artModal');
+  const modalImg = document.getElementById('fullImg');
+  modalImg.src = imgUrl;
+  modal.classList.add('active');
+}
+
+function closeArt() {
+  const modal = document.getElementById('artModal');
+  modal.classList.remove('active');
+}
+
+let clicks=0;
+function countClicks(){
+  clicks++;
+  if(clicks===10){
+    document.getElementById("secretMessage").style.display="block";
+  }
+}
+</script>
+
+</body>
+</html>
